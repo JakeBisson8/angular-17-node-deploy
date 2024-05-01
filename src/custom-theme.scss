@@ -11,20 +11,20 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$angular-17-app-template-primary: mat.define-palette(mat.$indigo-palette);
-$angular-17-app-template-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$angular-17-node-deploy-primary: mat.define-palette(mat.$indigo-palette);
+$angular-17-node-deploy-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$angular-17-app-template-warn: mat.define-palette(mat.$red-palette);
+$angular-17-node-deploy-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$angular-17-app-template-theme: mat.define-light-theme(
+$angular-17-node-deploy-theme: mat.define-light-theme(
   (
     color: (
-      primary: $angular-17-app-template-primary,
-      accent: $angular-17-app-template-accent,
-      warn: $angular-17-app-template-warn,
+      primary: $angular-17-node-deploy-primary,
+      accent: $angular-17-node-deploy-accent,
+      warn: $angular-17-node-deploy-warn,
     ),
   )
 );
@@ -32,4 +32,4 @@ $angular-17-app-template-theme: mat.define-light-theme(
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($angular-17-app-template-theme);
+@include mat.all-component-themes($angular-17-node-deploy-theme);
