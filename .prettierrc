@@ -1,0 +1,7 @@
+{
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "printWidth": 256,
+  "endOfLine": "crlf",
+  "singleQuote": true,
+  "semi": true
+}
