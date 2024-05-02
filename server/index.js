@@ -1,5 +1,6 @@
 require('dotenv-safe').config();
 const express = require('express');
+const helmet = require('helmet');
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
@@ -7,9 +8,10 @@ const disableTraceMethod = require('./middleware/disableTraceMethod');
 
 const app = express();
 
-const root = path.join(__dirname, '../dist/angular-17-node-deploy/browser');
-
+// app.use(helmet());
 app.use(disableTraceMethod);
+
+const root = path.join(__dirname, '../dist/angular-17-node-deploy/browser');
 
 app.get('*', function (req, res) {
   fs.stat(root + req.path, function (err) {
