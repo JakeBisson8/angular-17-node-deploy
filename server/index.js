@@ -8,7 +8,15 @@ const disableTraceMethod = require('./middleware/disableTraceMethod');
 
 const app = express();
 
-// app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        'script-src-attr': ["'self'", "'unsafe-inline'"],
+      },
+    },
+  }),
+);
 app.use(disableTraceMethod);
 
 const root = path.join(__dirname, '../dist/angular-17-node-deploy/browser');
