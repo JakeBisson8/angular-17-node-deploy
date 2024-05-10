@@ -1,0 +1,6 @@
+@for (todo of todos$ | async; track todo.id) {
+  <div class="flex flex-row justify-between space-y-3">
+    <span>{{ todo.content }}</span>
+    <button mat-raised-button color="warn" (click)="deleteTodo(todo.id)">delete</button>
+  </div>
+}
