@@ -31,28 +31,41 @@ npm run start
 ```
 
 ### Run HTTP Server
-For a quick and easy demonstration you can choose to run the web server using HTTP by following the steps below.
-1. Make a copy of `./server/.env.example` and name it `.env`. As we aren't setting up HTTPS, you don't need to modify any values in `.env`.
-2. Run the web server.
+For a quick and easy demonstration you can choose to run the web server using HTTP by following the steps below.  
+
+1. Build the angular application by running the following command at the top-level folder.
+```bash
+npm run build
+```
+2. Make a copy of `./server/.env.example` and name it `.env`. As we aren't setting up HTTPS, you don't need to modify any values in `.env`.
+3. Run the web server.
 ```bash
 cd ./server
 npm run start
 ```
-3. Navigate to the app in the web browser: http://localhost.
+4. Navigate to the app in the web browser: http://localhost.
 
 ### Run HTTPS Server
-For a longer, but more complete demonstration you can choose to run the web server using HTTPS by following the steps below.
-1. Install openssl following the instructions here: [https://tecadmin.net/install-openssl-on-windows/](https://tecadmin.net/install-openssl-on-windows/).
-2. Generate a self-signed SSL certificate and private key following instructions here: [https://gist.github.com/taoyuan/39d9bc24bafc8cc45663683eae36eb1a](https://gist.github.com/taoyuan/39d9bc24bafc8cc45663683eae36eb1a).
-3. Drop your `.crt` file and `.key` file inside of `./server/ssl`.
-4. Make a copy of `./server/.env.example` and name it `.env`.
-5. Update the `SSL_CERT_NAME` and `SSL_KEY_NAME` values inside of `.env` to the names of the `.crt` and `.key` files in `./server/ssl`. It must just be the filenames as the server knows to read them from the `./server/ssl` folder.
-6. Run the web server.
+For a longer, but more complete demonstration you can choose to run the web server using HTTPS by following the steps below.  
+1. Build the angular application by running the following command at the top-level folder.
+```bash
+npm run build
+```
+2. Install openssl following the instructions here: [https://tecadmin.net/install-openssl-on-windows/](https://tecadmin.net/install-openssl-on-windows/).
+3. Generate a self-signed SSL certificate and private key following instructions here: [https://gist.github.com/taoyuan/39d9bc24bafc8cc45663683eae36eb1a](https://gist.github.com/taoyuan/39d9bc24bafc8cc45663683eae36eb1a).
+4. Drop your `.crt` file and `.key` file inside of `./server/ssl`.
+5. Make a copy of `./server/.env.example` and name it `.env`.
+6. Update the `SSL_CERT_NAME` and `SSL_KEY_NAME` values inside of `.env` to the names of the `.crt` and `.key` files in `./server/ssl`. It must just be the filenames as the server knows to read them from the `./server/ssl` folder.
+```conf
+SSL_CERT_NAME="cert.crt"
+SSL_KEY_NAME="cert.key"
+```
+7. Run the web server.
 ```bash
 cd ./server
 npm run start
 ```
-7. Navigate to the app in the web browser: https://localhost.
+8. Navigate to the app in the web browser: https://localhost. You will probably get an error from chrome saying the connection is insecure. You can still proceed to the site. This error is due to the fact that we generated a self-signed certificate which is untrusted by the browser for security reasons. Using a valid certificate from a trusted certificate authority would remove this error.
 
 ### Template
 The angular app was built using my own starter template: [angular-17-app-template](https://github.com/JakeBisson8/angular-17-app-template).
